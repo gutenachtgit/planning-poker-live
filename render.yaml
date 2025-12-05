@@ -1,0 +1,25 @@
+services:
+  # Backend API
+  - type: web
+    name: planning-poker-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    rootDir: backend
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+
+  # Frontend Static Site
+  - type: web
+    name: planning-poker-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    rootDir: frontend
+    envVars:
+      - key: VITE_WS_URL
+        fromService:
+          type: web
+          name: planning-poker-backend
+          property: hostWSS
