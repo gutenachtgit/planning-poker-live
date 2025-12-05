@@ -65,6 +65,7 @@ defineProps<{
   gap: 8px;
   cursor: pointer;
   font-size: 14px;
+  color: #333;
 }
 
 hr {

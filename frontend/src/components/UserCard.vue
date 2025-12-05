@@ -49,7 +49,7 @@ const cardDisplay = computed(() => {
         @click="onForceSpectator"
         title="Zum Spectator machen"
       >
-        👁
+        ⏸
       </button>
     </div>
   </div>
@@ -116,6 +116,7 @@ const cardDisplay = computed(() => {
 .user-name {
   font-size: 14px;
   font-weight: 500;
+  color: #333;
   display: flex;
   align-items: center;
   gap: 4px;

@@ -49,6 +49,7 @@ const isDisabled = computed(() =>
   border: 2px solid #ccc;
   border-radius: 8px;
   background: white;
+  color: #333;
   font-size: 24px;
   font-weight: bold;
   cursor: pointer;
