@@ -32,14 +32,20 @@ export const useGameStore = defineStore('game', () => {
   })
 
   function updateRoomState(state: RoomState): void {
+    const wasRevealed = phase.value === 'revealed'
+    
     roomId.value = state.room_id
     phase.value = state.phase
     users.value = state.users
     deck.value = state.deck
 
-    if (phase.value === 'estimating') {
+    if (state.phase === 'estimating') {
       showConsensus.value = false
       consensusValue.value = null
+      
+      if (wasRevealed) {
+        selectedCard.value = null
+      }
     }
   }
 
